@@ -1,0 +1,143 @@
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
+
+.slide-item {
+  display: flex !important;
+  outline: none !important;
+  flex-direction: column;
+  text-decoration: none;
+  height: 100%;
+  cursor: pointer;
+  &:hover {
+    .slide-item__link {
+      opacity: 1;
+    }
+    .slide-item__img-inner {
+      transform: scale(1.2);
+    }
+  }
+  h3 {
+    color: #6ABEB9;
+    font-size: 22px;
+    line-height: 22px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    margin-top: 0;
+  }
+  h4 {
+    margin-top: 0;
+    font-weight: 400;
+    margin-bottom: 8px;
+    font-size: 20px;
+  }
+  p {
+    font-size: 20px;
+    line-height: 22px;
+    color: #ffff;
+    font-weight: 300;
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
+  .role {
+  }
+}
+
+
+
+
+
+.slide-item__link {
+  display: inline-flex;
+  align-items: center;
+  opacity: 0.4;
+  transition: all 0.2s;
+  img {
+    margin-left: 20px;
+  }
+}
+
+.slide-item__img {
+  height: 300px;
+  width: 100%;
+  display: block;
+  margin-bottom: 30px;
+  position: relative;
+  overflow: hidden;
+}
+
+
+.slide-item__img-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  transition: all 0.3s ease-out 0.1s;
+}
+
+.slick-track {
+  display: flex
+}
+
+.slick-slide {
+  padding: 20px;
+  height: auto;
+  display: flex !important;
+  &>div {
+    width: 100%;
+  }
+}
+
+.slick-arrow {
+  width: 30px;
+  height: 30px;
+  &.slick-disabled {
+    opacity: 0.4;
+    cursor: default;
+  }
+  &:before {
+    display: none;
+  }
+  &:hover {
+    img {
+      opacity: 1;
+    }
+  }
+  img {
+    width: 30px;
+    height: 30px;
+    opacity: 0.7;
+    transition: all 0.2s;
+  }
+}
+
+
+.slick-next {
+  img {
+    transform: rotate(180deg);
+  }
+}
+
+
+@media only screen and (max-width: 575px) {
+  .slide-item__img {
+    height: 200px;
+  }
+  .slick-slider {
+    width: 95%;
+    margin: 0 auto;
+  }
+  .Tag__body_end {
+    margin-top: 50px;
+    margin-bottom: 10px;
+  }
+  .slick-arrow {
+    img {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}

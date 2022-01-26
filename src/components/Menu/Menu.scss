@@ -1,0 +1,110 @@
+.Menu {
+  position: fixed;
+  display: none;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  pointer-events: none;
+  &.active {
+    pointer-events: auto;
+    .Menu__wrap {
+      opacity: 1;
+      pointer-events: auto;
+    }
+  }
+}
+
+
+.Menu__nav {
+  margin: 20px 0 25px;
+}
+
+.Menu__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.Menu__list-item {
+  margin-bottom: 15px;
+  text-align: center;
+  a {
+    color: #6ABEB9;
+    font-size: 22px;
+    line-height: 26px;
+    font-weight: 300;
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    transition: all 0.2s;
+    &:hover {
+      color: #fff;
+    }
+    &.active {
+      color: #fff;
+      &:before {
+        opacity: 1;
+      }
+    }
+    &:before {
+      position: absolute;
+      width: 1px;
+      height: 18px;
+      content: '';
+      background-color: #fff;
+      transform: rotate(30deg) translateY(-60%);
+      left: -18px;
+      top: 50%;
+      transition: all 0.2s;
+      opacity: 0;
+    }
+  }
+}
+
+.Tag__nav {
+  text-align: center;
+}
+
+.Menu__close {
+  display: inline-flex;
+  position: absolute;
+  right: -50px;
+  top: -40px;
+  z-index: 5;
+  cursor: pointer;
+}
+
+.Menu__wrap {
+  position: relative;
+  background-color: #111111;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.2s ease-in;
+}
+
+.menuAnim-enter {
+  opacity: 0;
+}
+.menuAnim-enter-active {
+  opacity: 1;
+  transition: opacity 300ms;
+}
+.menuAnim-exit {
+  opacity: 1;
+}
+.menuAnim-exit-active {
+  opacity: 0;
+  transition: opacity 300ms;
+}
