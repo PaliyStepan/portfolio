@@ -6,6 +6,9 @@ import img from "../../assets/img/svg/arrow__green.svg";
 import imgArrow from "../../assets/img/svg/arrow.svg";
 import { Power2, TweenMax } from "gsap";
 
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/swiper.scss';
+
 import imgGosti from "../../assets/img/projects/gosti.png";
 import imgJtl from "../../assets/img/projects/jtl.png";
 import imgEv from "../../assets/img/projects/evrasia.png";
@@ -26,55 +29,54 @@ import imgStreloy from "../../assets/img/projects/streloy.png";
 import imgFutur from "../../assets/img/projects/futuroom.png";
 import imgGlomaco from "../../assets/img/projects/glomaco.png";
 import imgProteco from "../../assets/img/projects/proteco.png";
+import imgOstec from "../../assets/img/projects/ostec.png";
+import imgBorey from "../../assets/img/projects/borey.png";
 
 
 
 const Projects = () => {
 
     useEffect(()=>{
-        let activeSlides = document.querySelectorAll('.slick-active');
-        const tagStart = document.querySelector('.Tag__div_start');
-        const tagEnd = document.querySelector('.Tag__div_end');
-        let arr = [...activeSlides];
-
-
-        const h1End = document.querySelector('.Tag__h1_end');
-
-        const h1EndAnim = () => {
-            TweenMax.to(h1End,
-                0.6,
-                {ease: Power2.easeInOut, opacity: 0.5},
-            );
-        };
-
-        const divTagsAnim = ()=> {
-            TweenMax.fromTo(tagStart,
-                0.6,
-                { ease: Power2.easeInOut, opacity: 0, x: -50},
-                { ease: Power2.easeInOut, opacity: 0.5, x: 0},
-            );
-            TweenMax.fromTo(tagEnd,
-                0.6,
-                { ease: Power2.easeInOut, opacity: 0, x: 50},
-                { ease: Power2.easeInOut, opacity: 0.5, x: 0},
-            );
-        };
-
-        TweenMax.staggerFromTo(itemsList.children,
-            0.2,
-            {ease: Power2.easeInOut, opacity: 0},
-            {ease: Power2.easeInOut, opacity: 1},
-            0.15,
-            h1EndAnim
-        );
-
-        TweenMax.staggerFromTo(arr,
-            0.6,
-            {x: -100,y:0, ease: Power2.easeInOut, opacity: 0},
-            {x: 0,y:0, ease: Power2.easeInOut, opacity: 1},
-            -0.5,
-            divTagsAnim
-        );
+        // const tagStart = document.querySelector('.Tag__div_start');
+        // const tagEnd = document.querySelector('.Tag__div_end');
+        // let arr = [...document.querySelectorAll('.slick-active')];
+        // const h1End = document.querySelector('.Tag__h1_end');
+		//
+        // const h1EndAnim = () => {
+        //     TweenMax.to(h1End,
+        //         0.6,
+        //         {ease: Power2.easeInOut, opacity: 0.5},
+        //     );
+        // };
+		//
+        // const divTagsAnim = ()=> {
+        //     TweenMax.fromTo(tagStart,
+        //         0.6,
+        //         { ease: Power2.easeInOut, opacity: 0, x: -50},
+        //         { ease: Power2.easeInOut, opacity: 0.5, x: 0},
+        //     );
+        //     TweenMax.fromTo(tagEnd,
+        //         0.6,
+        //         { ease: Power2.easeInOut, opacity: 0, x: 50},
+        //         { ease: Power2.easeInOut, opacity: 0.5, x: 0},
+        //     );
+        // };
+		//
+        // TweenMax.staggerFromTo(itemsList.children,
+        //     0.2,
+        //     {ease: Power2.easeInOut, opacity: 0},
+        //     {ease: Power2.easeInOut, opacity: 1},
+        //     0.15,
+        //     h1EndAnim
+        // );
+		//
+        // TweenMax.staggerFromTo(arr,
+        //     0.6,
+        //     {x: -100,y:0, ease: Power2.easeInOut, opacity: 0},
+        //     {x: 0,y:0, ease: Power2.easeInOut, opacity: 1},
+        //     -0.5,
+        //     divTagsAnim
+        // );
 
 
     },[]);
@@ -83,8 +85,8 @@ const Projects = () => {
     let itemsList = useRef(null);
 
     let sliderSettings = {
-      infinite: false,
-      slidesToShow: 4,
+		infinite: false,
+		slidesToShow: 4,
         nextArrow: <SampleNextArrow />,
         prevArrow: <SamplePrevArrow />,
         responsive: [
@@ -111,9 +113,9 @@ const Projects = () => {
 
     const [slides] = useState([
         {title:"Just in Time Logistix", desc: "Лендинг логистической компании", link:"http://www.jtlogistix.com/",
-            img:imgJtl, role: "Верстка, адаптив, jquery" },
+            img:imgJtl, role: "Верстка, адаптив, jquery", type:'landing' },
         {title:"DayNight", desc: "Интернет магазин одежды и обуви", link:"https://daynight.ru/",
-            img:imgDayNight, role: "Верстка, адаптив, jquery" },
+            img:imgDayNight, role: "Верстка, адаптив, jquery", type:'shop' },
         {title:"TOOFLI", desc: "Интернет-магазин итальянской обуви ", link:"https://toofli.com/",
             img:imgToofli, role: "Верстка, адаптив, jquery" },
         {title:"Eurasiakrep", desc: "Многостраничный сайт крепёжной компании", link:"https://eurasiakrep.ru/",
@@ -150,6 +152,10 @@ const Projects = () => {
             img:imgStels, role: "Доведение верстки до стандартов фирмы, после фрилансера." },
         {title:"Icsoba", desc: "Многостраничник международной конференции ", link:"https://icsoba.org/",
             img:imgIcsoba, role: "Доведение верстки до стандартов фирмы, после фрилансера." },
+        {title:"Ostec-materials", desc: "Многостраничник инжинирингового предприятия", link:"https://ostec-materials.ru/",
+            img:imgOstec, role: "Верстка, адаптив" },
+        {title:"Борей", desc: "Многостраничник установки 'Борей'", link:"https://ostec-materials.ru/",
+            img:imgBorey, role: "Верстка, адаптив" },
     ]);
 
     const sliderSlides = slides.map((slide, index) =>(
@@ -167,6 +173,26 @@ const Projects = () => {
         </a>
     ));
 
+    const filterButtons = [
+	    {name: 'all', translation: 'Все'},
+	    {name: 'shop', translation: 'Интернет-магазин'},
+	    {name: 'landing', translation: 'Лендинг'},
+	    {name: 'corporate', translation: 'Многостраничник'},
+	    {name: 'oneScreen', translation: 'Одноэкранник'},
+    ];
+
+
+    const [filter, setFilter] = useState('all');
+
+	let slider = useRef(null);
+	const setSliderFilterHandler = function (name) {
+		// setFilter(name)
+
+		let items = [...document.querySelectorAll('.swiper-wrapper .swiper-slide')];
+
+	};
+
+
     return(
 
         <div className="inner">
@@ -174,30 +200,62 @@ const Projects = () => {
             <Tag tag="body"/>
             <div className="inner__center">
 
-        <div className="Projects page">
-            <div className="title">
-                <Tag tag="h1"/>
-                <h1 ref={el => (itemsList = el)}>
-                    <span>П</span>
-                    <span>р</span>
-                    <span>о</span>
-                    <span>е</span>
-                    <span>к</span>
-                    <span>т</span>
-                    <span>ы</span>
-                </h1>
+		        <div className="Projects page">
+		            <div className="title">
+		                <Tag tag="h1"/>
+		                <h1 ref={el => (itemsList = el)}>
+		                    <span>П</span>
+		                    <span>р</span>
+		                    <span>о</span>
+		                    <span>е</span>
+		                    <span>к</span>
+		                    <span>т</span>
+		                    <span>ы</span>
+		                </h1>
 
-                <Tag tag="h1" end/>
-            </div>
+		                <Tag tag="h1" end/>
+		            </div>
 
-            <div className="inner__content">
-                <Tag tag="div"/>
-                <Slider {...sliderSettings}>
-                    {sliderSlides}
-                </Slider>
-                <Tag tag="div" end/>
-            </div>
-        </div>
+		            <div className="inner__content">
+		                <Tag tag="div"/>
+		                <div className="filter-buttons">
+			                <div className="filter-buttons__list">
+				                {
+					                filterButtons.map(btn => (
+						                <div className={'filter-button'} key={btn.name} onClick={()=>setSliderFilterHandler(btn.name)}>
+							                {
+								                btn.translation
+							                }
+						                </div>
+					                ))
+				                }
+			                </div>
+		                </div>
+
+			            <div className="filter">
+				            {filter}
+			            </div>
+		                <Slider {...sliderSettings}>
+		                    {sliderSlides}
+		                </Slider>
+
+			            <Swiper
+				            spaceBetween={50}
+				            slidesPerView={3}
+				            navigation
+				            onSwiper={(swiper) => console.log(swiper)}
+				            onSlideChange={() => console.log('slide change')}
+				            ref={el => (slider = el)}
+			            >
+				            {/*<SwiperSlide data-type={'shop'}>Slide 1</SwiperSlide>*/}
+				            {/*<SwiperSlide data-type={'corporate'}>Slide 2</SwiperSlide>*/}
+				            {/*<SwiperSlide data-type={'landing'}>Slide 3</SwiperSlide>*/}
+				            <SwiperSlide data-type={'oneScreen'}>Slide 4</SwiperSlide>
+				            {sliderSlides}
+			            </Swiper>
+		                <Tag tag="div" end/>
+		            </div>
+		        </div>
 
             </div>
             <Tag tag="body" end/>
@@ -208,6 +266,7 @@ const Projects = () => {
 };
 
 export default Projects;
+
 function SampleNextArrow(props) {
     const { className, onClick } = props;
     return (

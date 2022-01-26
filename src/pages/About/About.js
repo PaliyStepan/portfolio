@@ -6,10 +6,8 @@ import {Power2, TweenMax} from "gsap";
 const About = () => {
     useEffect(()=>{
 
-
         const tagStart = document.querySelector('.Tag__div_start');
         const tagEnd = document.querySelector('.Tag__div_end');
-
         const h1End = document.querySelector('.Tag__h1_end');
         const h1EndAnim = ()=> {
             TweenMax.to(h1End,
@@ -56,10 +54,7 @@ const About = () => {
     let itemsList = useRef(null);
     let contentBlock = useRef(null);
 
-
-
     return(
-
             <div className="inner">
                 <Tag tag="html"/>
                 <Tag tag="body"/>
@@ -82,11 +77,11 @@ const About = () => {
                             <Tag tag="div"/>
                             <div className="About__desc" ref={el => (contentBlock = el)}>
                                 <p>
-                                    Меня зовут Степан, мне 33 года.
-                                    В веб разработке больше 3 лет.
+                                    Меня зовут Степан, мне 34 года.
+                                    В веб разработке больше 3.5 лет.
                                 </p>
                                 <p>
-                                    Поучаствовал в создании больше 30 проектов (верстка + jquery), 6 из которых интернет магазины.
+                                    Поучаствовал в создании больше 45 проектов (верстка + jquery).
                                 </p>
                                 <p>
                                     Нравится верстать, анимировать и реализовывать безумные идеи дизайнеров.

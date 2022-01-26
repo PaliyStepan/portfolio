@@ -110,7 +110,7 @@ const Contacts = () => {
                                 <div className="Contacts__item">
                                     <a href="tel:89811223048">
                                         <img src={phone} alt=""/>
-                                        <span>8 (981) 122 30 48</span>
+                                        <span>+7 (981) 122 30 48</span>
                                     </a>
                                 </div>
                                 <div className="Contacts__item Contacts__item_mail">
