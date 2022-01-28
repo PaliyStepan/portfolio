@@ -77,6 +77,35 @@ body {
   display: flex;
 }
 
+.filter-buttons {
+	margin-bottom: 40px;
+}
+
+.filter-buttons__list {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	margin-bottom: -10px;
+}
+
+.filter-button {
+	display: inline-flex;
+	border: 1px solid #fff;
+	color: #fff;
+	cursor: pointer ;
+	height: 40px;
+	padding: 0 20px;
+	align-items: center;
+	justify-content: center;
+	margin-right: 10px;
+	transition: background-color 0.3s ease, border-color 0.3s ease;
+	margin-bottom: 10px;
+
+	&.is-active {
+		background-color: $green;
+		border-color: $green;
+	}
+}
 
 
 .Tag__body  {
@@ -377,6 +406,78 @@ body {
 .slick-prev {
   left: -30px !important;
 }
+
+
+.swiper-button-prev,
+.swiper-button-next {
+	width: 30px;
+	height: 30px;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	border: 1px solid #000;
+
+	&:before {
+		content: '';
+		display: block;
+		width: 100%;
+		height: 100%;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: 30px 30px;
+		background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12.7694 5.71059L8.47882 10L12.7682 14.2894L11.9365 15.1212L6.81529 10L11.9376 4.87765L12.7694 5.71059ZM20 10C20 15.5141 15.5141 20 10 20C4.48588 20 0 15.5141 0 10C0 4.48588 4.48588 0 10 0C15.5141 0 20 4.48588 20 10ZM18.8235 10C18.8235 5.13412 14.8659 1.17647 10 1.17647C5.13412 1.17647 1.17647 5.13412 1.17647 10C1.17647 14.8659 5.13412 18.8235 10 18.8235C14.8659 18.8235 18.8235 14.8659 18.8235 10Z' fill='%236ABEB9'/%3E%3C/svg%3E%0A");
+	}
+
+	&:after {
+		display: none;
+	}
+}
+
+//.swiper-button-prev {
+//
+//}
+
+.slider {
+	position: relative;
+
+	&__btn {
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		z-index: 2;
+		width: 30px;
+		height: 30px;
+		cursor: pointer;
+		opacity: 0.7;
+		transition: opacity 0.2s;
+
+		img  {
+			width: 100%;
+		}
+
+		&:hover {
+			opacity: 1;
+		}
+	}
+
+	&__btn--prev {
+		//left: -50px;
+		left: 0;
+	}
+
+	&__btn--next {
+		right: 0;
+		//right: -50px;
+
+		img {
+			transform: rotate(180deg);
+		}
+	}
+}
+
+
+
+
 
 
 // MEDIA
