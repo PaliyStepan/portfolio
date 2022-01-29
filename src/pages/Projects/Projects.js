@@ -1,11 +1,9 @@
 import React, {useEffect, useRef, useState} from "react";
 import "./Projects.scss"
 import Tag from "../../components/Tag/Tag";
-import Slider from "react-slick";
-import img from "../../assets/img/svg/arrow__green.svg";
-import imgArrow from "../../assets/img/svg/arrow.svg";
+
 import { Power2, TweenMax } from "gsap";
-import {CSSTransition} from 'react-transition-group'
+import {Transition} from 'react-transition-group'
 
 import SwiperCore, { Navigation } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -13,6 +11,10 @@ import 'swiper/swiper.scss';
 import 'swiper/components/navigation/navigation.scss';
 import  '../../components/FilterButtons/filterButtons.scss'
 
+
+
+import img from "../../assets/img/svg/arrow__green.svg";
+import imgArrow from "../../assets/img/svg/arrow.svg";
 import imgGosti from "../../assets/img/projects/gosti.png";
 import imgJtl from "../../assets/img/projects/jtl.png";
 import imgEv from "../../assets/img/projects/evrasia.png";
@@ -51,50 +53,54 @@ const Projects = () => {
         const tagStart = document.querySelector('.Tag__div_start');
         const tagEnd = document.querySelector('.Tag__div_end');
         let arr = [];
-        // let arr = [
-        // 	document.querySelectorAll('.swiper-slide')[0],
-        // 	document.querySelectorAll('.swiper-slide')[1],
-        // 	document.querySelectorAll('.swiper-slide')[2],
-        // 	document.querySelectorAll('.swiper-slide')[3],
-        // ];
 
-	    if (window.matchMedia("(max-width: 2650px)").matches) {
+	    if (
+	    	window.matchMedia("(max-width: 2700px)").matches
+	        && window.matchMedia("(min-width: 1450px)").matches
+	    ) {
 		    arr = [
 			    document.querySelectorAll('.swiper-slide')[0],
 			    document.querySelectorAll('.swiper-slide')[1],
 			    document.querySelectorAll('.swiper-slide')[2],
 			    document.querySelectorAll('.swiper-slide')[3],
 		    ];
-	    } else if  (window.matchMedia("(max-width: 1399px)").matches) {
+	    }
+
+	    if (
+		    window.matchMedia("(max-width: 1449px)").matches
+		    && window.matchMedia("(min-width: 992px)").matches
+	    ) {
 		    arr = [
 			    document.querySelectorAll('.swiper-slide')[0],
 			    document.querySelectorAll('.swiper-slide')[1],
 			    document.querySelectorAll('.swiper-slide')[2],
 		    ];
-	    } else if  (window.matchMedia("(max-width: 992px)").matches) {
+	    }
+
+	    if (
+		    window.matchMedia("(max-width: 991px)").matches
+		    && window.matchMedia("(min-width: 651px)").matches
+	    ) {
 		    arr = [
 			    document.querySelectorAll('.swiper-slide')[0],
 			    document.querySelectorAll('.swiper-slide')[1],
 		    ];
-	    }  else if  (window.matchMedia("(max-width: 649px)").matches) {
+	    }
+
+	    if (
+		    window.matchMedia("(max-width: 650px)").matches
+	    ) {
 		    arr = [
 			    document.querySelectorAll('.swiper-slide')[0],
 		    ];
 	    }
-
-
-	    // console.log(arr)
-
         const h1End = document.querySelector('.Tag__h1_end');
-
-
         const h1EndAnim = () => {
             TweenMax.to(h1End,
                 0.6,
                 {ease: Power2.easeInOut, opacity: 0.5},
             );
         };
-
         const divTagsAnim = ()=> {
             TweenMax.fromTo(tagStart,
                 0.6,
@@ -129,33 +135,6 @@ const Projects = () => {
 
 
     let itemsList = useRef(null);
-
-    let sliderSettings = {
-		infinite: false,
-		slidesToShow: 4,
-        nextArrow: <SampleNextArrow />,
-        prevArrow: <SamplePrevArrow />,
-        responsive: [
-            {
-                breakpoint: 1450,
-                settings: {
-                    slidesToShow: 3,
-                }
-            },
-            {
-                breakpoint: 991,
-                settings: {
-                    slidesToShow: 2,
-                }
-            },
-            {
-                breakpoint: 767,
-                settings: {
-                    slidesToShow: 1,
-                }
-            }
-        ]
-    };
 
     const projects = [
 
@@ -370,6 +349,13 @@ const Projects = () => {
 	    }
     ];
 
+	const filterButtons = [
+		{name: 'shop', translation: 'Интернет-магазин'},
+		{name: 'landing', translation: 'Лендинг'},
+		{name: 'corporate', translation: 'Многостраничник'},
+		{name: 'oneScreen', translation: 'Одноэкранник'},
+		{name: 'EduTech', translation: 'EduTech'},
+	];
 
     const [slides, setSlides] = useState(projects);
 
@@ -383,57 +369,29 @@ const Projects = () => {
 			filterProjects =  projects.filter(project => project.type === type)
 		}
 
-
 		setSliderFilterHandler(type);
-
 		setSlides(filterProjects);
 
-		swiperRef.current.swiper.slideTo(0)
+		console.log(slidesRef)
+
+		swiperRef.current.swiper.slideTo(0);
+
 
 
 	};
 
-
-    const sliderSlides = slides.map((slide, index) =>(
-        <a href={slide.link} target="_blank" rel="noopener noreferrer" className="slide-item" key={index} draggable="false">
-            <span className="slide-item__img">
-                 <span className="slide-item__img-inner" style={{background: `url("${slide.img}")`}}></span>
-            </span>
-            <h3>"{slide.title}"</h3>
-            <p>{slide.desc}</p>
-            <h4>Роль:</h4>
-            <p className="role">
-                {slide.role}
-            </p>
-            <span className="slide-item__link">Смотреть сайт <img src={imgArrow} alt="arrow"/></span>
-        </a>
-    ));
-
-    const filterButtons = [
-	    {name: 'shop', translation: 'Интернет-магазин'},
-	    {name: 'landing', translation: 'Лендинг'},
-	    {name: 'corporate', translation: 'Многостраничник'},
-	    {name: 'oneScreen', translation: 'Одноэкранник'},
-	    {name: 'EduTech', translation: 'EduTech'},
-    ];
-
     const [filter, setFilter] = useState(null);
-
-	SwiperCore.use([Navigation]);
-
-
 	const setSliderFilterHandler = function (type) {
 		setFilter(type);
 	};
 
-	const navigationPrevRef = React.useRef(null);
-	const navigationNextRef = React.useRef(null);
+	SwiperCore.use([Navigation]);
 
 	const swiperRef = React.useRef();
+	const slidesRef = React.useRef();
 
 	const swiperPrev = () => {
 		swiperRef.current.swiper.slidePrev();
-
 	};
 
 	const swiperNext = () => {
@@ -444,8 +402,6 @@ const Projects = () => {
     return(
 
         <div className="inner">
-            <Tag tag="html"/>
-            <Tag tag="body"/>
             <div className="inner__center">
 
 		        <div className="Projects page">
@@ -498,24 +454,11 @@ const Projects = () => {
 		                </div>
 
 
-
-		                {/*<Slider {...sliderSettings}>*/}
-		                {/*    {sliderSlides}*/}
-		                {/*</Slider>*/}
 						<div className="slider">
 				            <Swiper
 					            modulse={[Navigation]}
 					            spaceBetween={40}
 					            slidesPerView={1}
-					            observer
-					            navigation={{
-						            prevEl: navigationPrevRef.current,
-						            nextEl: navigationNextRef.current,
-					            }}
-					            onBeforeInit={(swiper) => {
-						            swiper.params.navigation.prevEl = navigationPrevRef.current;
-						            swiper.params.navigation.nextEl = navigationNextRef.current;
-					            }}
 					            breakpoints={{
 						            651: {
 							            slidesPerView: 2,
@@ -530,13 +473,15 @@ const Projects = () => {
 					            ref={swiperRef}
 					            className='slider__init'
 				            >
-					            <CSSTransition>
 					            {slides.map(slide => (
-						            <SwiperSlide key={slide.title} >
+						            <SwiperSlide
+							            key={slide.title}
+							            ref={slidesRef}
+						            >
 							            <a href={slide.link} target="_blank" rel="noopener noreferrer" className="slide-item" draggable="false">
-									            <span className="slide-item__img">
-									                 <span className="slide-item__img-inner" style={{background: `url("${slide.img}")`}}></span>
-									            </span>
+								            <div className="slide-item__img">
+								                 <div className="slide-item__img-inner" style={{background: `url("${slide.img}")`}}></div>
+								            </div>
 								            <h3>"{slide.title}"</h3>
 								            <p>{slide.desc}</p>
 								            <h4>Роль:</h4>
@@ -547,7 +492,6 @@ const Projects = () => {
 							            </a>
 						            </SwiperSlide>
 					            ))}
-					            </CSSTransition>
 
 				            </Swiper>
 							<div
@@ -568,35 +512,8 @@ const Projects = () => {
 		        </div>
 
             </div>
-            <Tag tag="body" end/>
-            <Tag tag="html" end/>
-
         </div>
     )
 };
 
 export default Projects;
-
-function SampleNextArrow(props) {
-    const { className, onClick } = props;
-    return (
-        <div
-            className={className}
-            onClick={onClick}
-        >
-            <img src={img} alt="arrow"/>
-        </div>
-    );
-}
-
-function SamplePrevArrow(props) {
-    const { className, onClick } = props;
-    return (
-        <div
-            className={className}
-            onClick={onClick}
-        >
-            <img src={img} alt="arrow"/>
-        </div>
-    );
-}

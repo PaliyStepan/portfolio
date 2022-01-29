@@ -1,61 +1,50 @@
 .Burger{
-  display: block;
-  width: 30px;
-  position: relative;
-  height: 22px;
-  background-color: #111111;
-  //background-color: red;
-  cursor: pointer;
-  pointer-events: auto;
-  &.active {
-    .Burger__line_top {
-      transform: rotate(45deg);
-    }
-    .Burger__line_center {
-      opacity: 0;
-    }
-    .Burger__line_bottom {
-      transform: rotate(-45deg);
-    }
-  }
-  &:hover {
-    .Burger__line {
-      background-color: #6ABEB9;
-    }
-  }
+	display: block;
+	width: 30px;
+	position: relative;
+	height: 22px;
+	background-color: #111111;
+	cursor: pointer;
+	pointer-events: auto;
+
+	&__line {
+		width: 100%;
+		height: 3px;
+		background-color: #ffffff;
+		position: absolute;
+		left: 0;
+		transition: all 0.3s ease-in-out;
+	}
+
+	&__line--top {
+		top: 0;
+		transform-origin: 5%;
+	}
+
+	&__line--center {
+		top: 50%;
+		transform: translateY(-50%);
+	}
+
+	&__line--bottom {
+		bottom: 0;
+		transform-origin: 5%;
+	}
+
+	&.active &__line--top {
+		transform: rotate(45deg);
+	}
+
+	&.active &__line--center {
+		opacity: 0;
+	}
+
+	&.active &__line--bottom {
+		transform: rotate(-45deg);
+	}
+
+	&:hover &__line {
+		background-color: #6ABEB9;
+	}
 }
-
-.Burger__line {
-  width: 100%;
-  height: 3px;
-  background-color: #ffffff;
-  position: absolute;
-  left: 0;
-  transition: all 0.3s ease-in-out;
-  &_top {
-    top: 0;
-    transform-origin: 5%;
-  }
-  &_center {
-    top: 50%;
-    transform: translateY(-50%);
-  }
-  &_bottom {
-    bottom: 0;
-    transform-origin: 5%;
-  }
-}
-
-
-
-
-
-@media only screen and (max-width: 575px){
-  .header {
-    top: 30px;
-  }
-}
-
-
-
 

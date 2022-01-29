@@ -56,8 +56,7 @@ const About = () => {
 
     return(
             <div className="inner">
-                <Tag tag="html"/>
-                <Tag tag="body"/>
+
                 <div className="inner__center">
                     <div className="About page">
                         <div className="title">
@@ -81,7 +80,7 @@ const About = () => {
                                     В веб разработке больше 3.5 лет.
                                 </p>
                                 <p>
-                                    Поучаствовал в создании больше 30 проектов (верстка + jquery).
+                                    Поучаствовал в создании больше 34 проектов.
                                 </p>
                                 <p>
                                     Нравится верстать, анимировать и реализовывать безумные идеи дизайнеров.
@@ -93,8 +92,7 @@ const About = () => {
                     </div>
 
                 </div>
-                <Tag tag="body" end/>
-                <Tag tag="html" end/>
+
 
             </div>
 

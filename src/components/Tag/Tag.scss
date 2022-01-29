@@ -1,12 +1,86 @@
 @import url('https://fonts.googleapis.com/css2?family=La+Belle+Aurore&display=swap');
 
 .Tag {
-  font-family: 'La Belle Aurore', cursive;
-  font-size: 20px;
-  display: block;
-  opacity: 0.5;
-  -moz-user-select: none;
-  -khtml-user-select: none;
-  -webkit-user-select: none;
-  user-select: none;
+	font-family: 'La Belle Aurore', cursive;
+	font-size: 20px;
+	display: block;
+	opacity: 0.5;
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+	user-select: none;
+
+	@media only screen and (max-width: 575px) {
+		font-size: 18px !important;
+	}
+
+
+	&__body {
+		margin-left: 70px;
+
+		@media only screen and (max-width: 1199px) {
+			margin-left: 50px;
+		}
+
+		@media only screen and (max-width: 991px) {
+			margin-left: 40px;
+		}
+
+		@media only screen and (max-width: 575px) {
+			margin-left: 6px;
+		}
+	}
+
+	&__body_start {
+		//margin-bottom: 60px;
+	}
+
+	&__body_end {
+		//margin-top: 150px;
+
+
+		@media only screen and (max-width: 575px) {
+			//margin-top: 30px !important;
+		}
+	}
+
+	&__div_start {
+		margin-bottom: 30px;
+
+		@media only screen and (max-width: 991px) {
+			//margin-bottom: 40px;
+		}
+
+		@media only screen and (max-width: 575px) {
+			//margin-bottom: 10px;
+		}
+	}
+
+	&__div_end {
+		margin-top: 40px;
+
+		@media only screen and (max-width: 991px) {
+			//margin-top: 80px;
+		}
+
+		@media only screen and (max-width: 575px) {
+			//margin-top: 30px !important;
+		}
+	}
+
+
+
+	&__div {
+
+		@media only screen and (max-width: 1199px) {
+			transform: translateX(0px);
+		}
+
+		@media only screen and (max-width: 575px) {
+			transform: translateX(0) ;
+		}
+	}
+
 }
+
+

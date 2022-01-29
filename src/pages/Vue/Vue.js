@@ -149,71 +149,65 @@ const ReactBlock = () => {
     return(
 
         <div className="inner">
-            <Tag tag="html"/>
-            <Tag tag="body"/>
+
             <div className="inner__center">
-        <div className="React page">
-            <div className="title">
-                <Tag tag="h1"/>
-                <h1 ref={el => (itemsList = el)}>
-                    <span>V</span>
-                    <span>u</span>
-                    <span>e</span>
-                </h1>
-                <Tag tag="h1" end/>
-            </div>
-            <div className="inner__content">
-                <Tag tag="div"/>
-                <p className="react__des">Проекты, которые я создал в процессе изучения Vue </p>
-                <Slider {...sliderSettings}>
-                    {sliderSlides}
-                </Slider>
-                <Tag tag="div" end/>
-            </div>
+		        <div className="React page">
+		            <div className="title">
+		                <Tag tag="h1"/>
+		                <h1 ref={el => (itemsList = el)}>
+		                    <span>V</span>
+		                    <span>u</span>
+		                    <span>e</span>
+		                </h1>
+		                <Tag tag="h1" end/>
+		            </div>
+		            <div className="inner__content">
+		                <Tag tag="div"/>
+		                <p className="react__des">Проекты, которые я создал в процессе изучения Vue </p>
+		                <Slider {...sliderSettings}>
+		                    {sliderSlides}
+		                </Slider>
+		                <Tag tag="div" end/>
+		            </div>
 
 
-                    <CSSTransition
-                        in={modalToggler}
-                        timeout={200}
-                        classNames="alert"
-                        unmountOnExit
-                    >
-                        <div className="modal" >
-                            <div className="modal__body">
-                                <div className="modal__close" onClick={modalToggle}>
-                                   {close}
-                                </div>
-                                <div className="modal__content">
-                                    <h1>{modal.title}</h1>
-                                    <p>{modal.more}</p>
-                                    {modal.note && <div className="modal__note">
-                                        <h3>Для авторизации в проекте, используйте эти данные</h3>
-                                        <p>
-                                            <span>login:</span>
-                                            {modal.note.login}
-                                        </p>
-                                        <p>
-                                            <span>Password:</span>
-                                            {modal.note.pass}
-                                        </p>
-                                    </div>}
-                                    <div className="modal__footer">
-                                        <a href={modal.link} target="_blank" rel="noopener noreferrer"> Смотреть проект {eye}</a>
-                                        <a href={modal.linkGit} target="_blank" rel="noopener noreferrer"> Смотреть код на GitHub {git}</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="modal__bg" onClick={modalToggle}></div>
-                        </div>
-                    </CSSTransition>
-        </div>
-
-
-        </div>
-    <Tag tag="body" end/>
-    <Tag tag="html" end/>
-
-    </div>
+		                    <CSSTransition
+		                        in={modalToggler}
+		                        timeout={200}
+		                        classNames="alert"
+		                        unmountOnExit
+		                    >
+		                        <div className="modal" >
+		                            <div className="modal__body">
+		                                <div className="modal__close" onClick={modalToggle}>
+		                                   {close}
+		                                </div>
+		                                <div className="modal__content">
+		                                    <h1>{modal.title}</h1>
+		                                    <p>{modal.more}</p>
+		                                    {modal.note && <div className="modal__note">
+		                                        <h3>Для авторизации в проекте, используйте эти данные</h3>
+		                                        <p>
+		                                            <span>login:</span>
+		                                            {modal.note.login}
+		                                        </p>
+		                                        <p>
+		                                            <span>Password:</span>
+		                                            {modal.note.pass}
+		                                        </p>
+		                                    </div>}
+		                                    <div className="modal__footer">
+		                                        <a href={modal.link} target="_blank" rel="noopener noreferrer"> Смотреть проект {eye}</a>
+		                                        <a href={modal.linkGit} target="_blank" rel="noopener noreferrer"> Смотреть код на GitHub {git}</a>
+		                                    </div>
+		                                </div>
+		                            </div>
+		                            <div className="modal__bg" onClick={modalToggle}></div>
+		                        </div>
+		                    </CSSTransition>
+		        </div>
+	        </div>
+	    </div>
     )
 };
 

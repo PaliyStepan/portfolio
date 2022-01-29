@@ -9,6 +9,7 @@ import ReactBlock from "./pages/React/React";
 import Contacts from "./pages/Contacts/Contacts";
 import Games from "./pages/Games/Games";
 import VueBlock from "./pages/Vue/Vue";
+import Tag from "./components/Tag/Tag";
 
 function App() {
 
@@ -20,25 +21,31 @@ function App() {
     },[]);
 
     return (
-
         <div className={app.join(" ")}>
-          <div className="wrap">
-              <div className="container container_main">
-                  <Switch >
-                      <Route path="/about" component={About}></Route>
-                      <Route path="/skills" exact component={Skills}></Route>
-                      <Route path="/projects" component={Projects }></Route>
-                      <Route path="/react" component={ReactBlock }></Route>
-                      <Route path="/vue" component={VueBlock }></Route>
-                      <Route path="/contacts"  component={Contacts}></Route>
-                      <Route path="/games"  component={Games}></Route>
-                      <Route path="/" exact component={Main}></Route>
-                      <Redirect to="/"/>
-                  </Switch>
-                  <Menu/>
-              </div>
-          </div>
-    </div>
+			<Menu/>
+			<div className="App__wrap">
+				<div className="container App__container">
+					<Tag tag="html"/>
+					<Tag tag="body"/>
+
+					<div className="App__content">
+						<Switch >
+							<Route path="/about" component={About}></Route>
+							<Route path="/skills" exact component={Skills}></Route>
+							<Route path="/projects" component={Projects }></Route>
+							<Route path="/react" component={ReactBlock }></Route>
+							<Route path="/vue" component={VueBlock}></Route>
+							<Route path="/contacts"  component={Contacts}></Route>
+							<Route path="/games"  component={Games}></Route>
+							<Route path="/" exact component={Main}></Route>
+							<Redirect to="/"/>
+						</Switch>
+					</div>
+					<Tag tag="body" end/>
+					<Tag tag="html" end/>
+				</div>
+			</div>
+		</div>
     );
 }
 

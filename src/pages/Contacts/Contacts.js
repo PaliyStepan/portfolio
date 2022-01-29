@@ -82,8 +82,7 @@ const Contacts = () => {
     return(
 
         <div className="inner">
-            <Tag tag="html"/>
-            <Tag tag="body"/>
+
             <div className="inner__center">
 
 
@@ -154,8 +153,7 @@ const Contacts = () => {
 
 
             </div>
-            <Tag tag="body" end/>
-            <Tag tag="html" end/>
+
 
         </div>
     )

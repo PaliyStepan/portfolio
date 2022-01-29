@@ -26,7 +26,7 @@ const Main = () => {
                 { ease: Power2.easeInOut, opacity: 0.5},
             );
             TweenMax.to(title__desc,
-                0.8,
+                0.7,
                 { ease: Power2.easeInOut, opacity: 1},
             );
 
@@ -37,7 +37,7 @@ const Main = () => {
             0.2,
             { ease: Power2.easeInOut, opacity: 0},
             { ease: Power2.easeInOut, opacity: 1},
-            0.15,
+            0.12,
             h1EndAnim
         );
 
@@ -57,16 +57,10 @@ const Main = () => {
     let itemsList = useRef(null);
     let imgAnim = useRef(null);
 
-
-
-
-
-
-
     return(
         <div className="inner">
-            <Tag tag="html"/>
-            <Tag tag="body"/>
+            {/*<Tag tag="html"/>
+            <Tag tag="body"/>*/}
             <div className="inner__center">
                 <div className="Main page">
                     <div className="title">
@@ -97,10 +91,9 @@ const Main = () => {
                        <img src={img} alt="я" ref={el => (imgAnim = el)}/>
                     </div>
                 </div>
-
             </div>
-            <Tag tag="body" end/>
-            <Tag tag="html" end/>
+            {/*<Tag tag="body" end/>*/}
+            {/*<Tag tag="html" end/>*/}
 
         </div>
     )

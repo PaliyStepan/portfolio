@@ -24,7 +24,7 @@ const Menu = () => {
         toggleBurger();
         const after = () => {
             toggleMenu();
-                history.push(link)
+            history.push(link)
         };
         e.preventDefault();
         let arr = [...itemsList.children].filter(
@@ -67,7 +67,6 @@ const Menu = () => {
         }
     };
 
-
     let itemsList = useRef(null);
 
     const cl = ['Menu'];
@@ -90,17 +89,16 @@ const Menu = () => {
 
     return(
         <div className={cl.join(" ")}>
-            <header className="header">
-                <div className="container">
+            <header className="Menu__header">
+                <div className="container Menu__header-container">
                     <div className={burger.join(" ")}  onClick={mobileMenuToggle}>
-                        <div className="Burger__line Burger__line_top"></div>
-                        <div className="Burger__line Burger__line_center"></div>
-                        <div className="Burger__line Burger__line_bottom"></div>
+                        <div className="Burger__line Burger__line--top"></div>
+                        <div className="Burger__line Burger__line--center"></div>
+                        <div className="Burger__line Burger__line--bottom"></div>
                     </div>
                 </div>
             </header>
                 <div className="Menu__wrap">
-                    {/*<div className="Menu__bg" ref={el => (menuBg = el)}></div>*/}
                     <div className="Tag Tag__nav Tag__nav_start">&lt;nav&gt;</div>
                     <nav className="Menu__nav">
                         <ul className="Menu__list" ref={el => (itemsList = el)} >

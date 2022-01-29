@@ -58,8 +58,6 @@ const Skills = () => {
 
     return(
         <div className="inner">
-            <Tag tag="html"/>
-            <Tag tag="body"/>
             <div className="inner__center">
 
                 <div className="Skills page">
@@ -182,9 +180,6 @@ const Skills = () => {
                 </div>
 
             </div>
-            <Tag tag="body" end/>
-            <Tag tag="html" end/>
-
         </div>
     )
 };
