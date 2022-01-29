@@ -16,7 +16,8 @@
     "react-slick": "^0.25.2",
     "react-transition-group": "^4.3.0",
     "slick-carousel": "^1.8.1",
-    "swiper": "6.8.4"
+    "swiper": "6.8.4",
+    "transition-group": "^0.0.2"
   },
   "scripts": {
     "start": "react-scripts start",

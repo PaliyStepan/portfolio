@@ -77,35 +77,6 @@ body {
   display: flex;
 }
 
-.filter-buttons {
-	margin-bottom: 40px;
-}
-
-.filter-buttons__list {
-	display: flex;
-	align-items: center;
-	flex-wrap: wrap;
-	margin-bottom: -10px;
-}
-
-.filter-button {
-	display: inline-flex;
-	border: 1px solid #fff;
-	color: #fff;
-	cursor: pointer ;
-	height: 40px;
-	padding: 0 20px;
-	align-items: center;
-	justify-content: center;
-	margin-right: 10px;
-	transition: background-color 0.3s ease, border-color 0.3s ease;
-	margin-bottom: 10px;
-
-	&.is-active {
-		background-color: $green;
-		border-color: $green;
-	}
-}
 
 
 .Tag__body  {
@@ -440,6 +411,15 @@ body {
 .slider {
 	position: relative;
 
+
+	&__init {
+		@media only screen and (max-width: 575px) {
+
+			padding-left: 20px !important;
+			padding-right: 20px !important;
+		}
+	}
+
 	&__btn {
 		position: absolute;
 		top: 50%;
@@ -458,16 +438,28 @@ body {
 		&:hover {
 			opacity: 1;
 		}
+
+
+		@media only screen and (max-width: 575px) {
+			width: 20px;
+			height: 20px;
+		}
 	}
 
 	&__btn--prev {
-		//left: -50px;
-		left: 0;
+		left: -50px;
+
+		@media only screen and (max-width: 575px) {
+			left: -20px;
+		}
 	}
 
 	&__btn--next {
-		right: 0;
-		//right: -50px;
+		right: -50px;
+
+		@media only screen and (max-width: 575px) {
+			right: -20px;
+		}
 
 		img {
 			transform: rotate(180deg);
@@ -563,7 +555,14 @@ body {
 
 @media only screen and (max-width: 767px) {
   .container{
-    max-width: 95%;
+    max-width: 100%;
+	  padding-left: 20px;
+	  padding-right: 20px;
+  }
+
+  .inner {
+	  padding-left: 20px;
+	  padding-right: 20px;
   }
   .inner__center {
     padding-left: 10%;
@@ -586,12 +585,12 @@ body {
 @media only screen and (max-width: 575px) {
 
   .inner__center {
-    padding-left: 5%;
-    padding-right: 5%;
+    padding-left: 10px;
+    padding-right: 10px;
   }
 
   .Tag__body {
-    margin-left: 15px;
+    margin-left: 6px;
   }
 
   .title {

@@ -5,11 +5,13 @@ import Slider from "react-slick";
 import img from "../../assets/img/svg/arrow__green.svg";
 import imgArrow from "../../assets/img/svg/arrow.svg";
 import { Power2, TweenMax } from "gsap";
+import {CSSTransition} from 'react-transition-group'
 
 import SwiperCore, { Navigation } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper.scss';
 import 'swiper/components/navigation/navigation.scss';
+import  '../../components/FilterButtons/filterButtons.scss'
 
 import imgGosti from "../../assets/img/projects/gosti.png";
 import imgJtl from "../../assets/img/projects/jtl.png";
@@ -36,6 +38,9 @@ import imgBorey from "../../assets/img/projects/borey.png";
 import imgEcoService from "../../assets/img/projects/ecoService.png";
 import imgTermits from "../../assets/img/projects/termits.png";
 import imgIntlight from "../../assets/img/projects/intlight.png";
+import imgTranswin from "../../assets/img/projects/transwin.png";
+import imgHorse from "../../assets/img/projects/horse.png";
+import imgAutosew from "../../assets/img/projects/autosew.png";
 
 
 
@@ -78,7 +83,7 @@ const Projects = () => {
 	    }
 
 
-	    console.log(arr)
+	    // console.log(arr)
 
         const h1End = document.querySelector('.Tag__h1_end');
 
@@ -160,7 +165,7 @@ const Projects = () => {
 		    link:"https://ostec-materials.ru/",
 		    img: imgOstec,
 		    role: "Верстка, адаптив",
-		    type:'shop'
+		    type:'corporate'
 	    },
 	    {
 		    title:"DayNight", desc: "Интернет магазин одежды и обуви",
@@ -172,7 +177,7 @@ const Projects = () => {
 	    {
 		    title:"Борей",
 		    desc: "Многостраничник установки 'Борей'",
-		    link:"https://ostec-materials.ru/",
+		    link:"https://borey-ostec.ru/",
 		    img: imgBorey,
 		    role: "Верстка, адаптив",
 		    type:'landing'
@@ -183,6 +188,14 @@ const Projects = () => {
 		    link:"https://termits.ru/",
 		    img:  imgTermits,
 		    role: "Верстка, адаптив, разработка квиза",
+		    type:'corporate'
+	    },
+	    {
+		    title:"Autosew",
+		    desc: "Многостраничник компании по заупуску швейных производств",
+		    link:"https://autosew.ru/",
+		    img:  imgAutosew,
+		    role: "Верстка, адаптив, vanilla js",
 		    type:'corporate'
 	    },
 	    {
@@ -277,36 +290,36 @@ const Projects = () => {
 		    desc: "Одноэкранник медицинского препарата",
 		    link:"https://timusol.ru/",
 		    img:imgTim,
-		    role: "Верстка, адаптив, jquery",
+		    role: "Верстка, адаптив, jquery, анимации",
 		    type:'oneScreen'
 	    },
 	    {
 	    	title:"Фортевигал",
 		    desc: "Одноэкранник медицинского препарата",
 		    link:"https://fortevigal.ru/",
-		    img:imgForte, role: "Верстка, адаптив, jquery",
-		     type:'oneScreen'
+		    img:imgForte, role: "Верстка, адаптив, jquery, анимации",
+		    type:'oneScreen'
 	    },
 	    {
 	    	title:"Либемакс", desc: "Одноэкранник медицинского препарата",
 		    link:"https://libemaks.ru/",
 		    img:imgLibe,
-		    role: "Верстка, адаптив, jquery",
-		     type:'oneScreen'
+		    role: "Верстка, адаптив, jquery, анимации",
+		    type:'oneScreen'
 	    },
 	    {
 	    	title:"Glomaco",
 		    desc: "Лендинг фармацевтической компании",
 		    link:"https://glomaco.ru/",
 		    img:imgGlomaco, role: "Верстка, адаптив, jquery",
-		    type:'corporate'
+		    type:'landing'
 	    },
 	    {
 	    	title:"Proteco",
 		    desc: "Лендинг фармацевтической компании",
 		    link:"https://protecogroup.com/",
 		    img:imgProteco, role: "Верстка, адаптив, jquery",
-		    type:'corporate'
+		    type:'landing'
 	    },
 	    {
 	    	title:"Сfmoto-experience", desc: "Многостраничный сайт проката квадроциклов",
@@ -338,6 +351,22 @@ const Projects = () => {
 		    img: imgIcsoba,
 		    role: "Доведение верстки до стандартов фирмы, после фрилансера.",
 		    type:'corporate'
+	    },
+	    {
+	    	title:"Transwin",
+		    desc: "Лендинг логистической компании",
+		    link:"https://transwin.ru/",
+		    img: imgTranswin,
+		    role: "Верстка, адаптив, jquery",
+		    type:'landing'
+	    },
+	    {
+	    	title:"Top Horse Club",
+		    desc: "Образовательная платформа по обучению верховой езде.",
+		    link:"https://tophorseclub.com/",
+		    img: imgHorse,
+		    role: "Верстка, адаптив, jquery",
+		    type:'EduTech'
 	    }
     ];
 
@@ -355,9 +384,12 @@ const Projects = () => {
 		}
 
 
-		setSliderFilterHandler(type)
+		setSliderFilterHandler(type);
 
 		setSlides(filterProjects);
+
+		swiperRef.current.swiper.slideTo(0)
+
 
 	};
 
@@ -382,11 +414,12 @@ const Projects = () => {
 	    {name: 'landing', translation: 'Лендинг'},
 	    {name: 'corporate', translation: 'Многостраничник'},
 	    {name: 'oneScreen', translation: 'Одноэкранник'},
+	    {name: 'EduTech', translation: 'EduTech'},
     ];
 
     const [filter, setFilter] = useState(null);
 
-	SwiperCore.use([Navigation])
+	SwiperCore.use([Navigation]);
 
 
 	const setSliderFilterHandler = function (type) {
@@ -395,6 +428,17 @@ const Projects = () => {
 
 	const navigationPrevRef = React.useRef(null);
 	const navigationNextRef = React.useRef(null);
+
+	const swiperRef = React.useRef();
+
+	const swiperPrev = () => {
+		swiperRef.current.swiper.slidePrev();
+
+	};
+
+	const swiperNext = () => {
+		swiperRef.current.swiper.slideNext();
+	};
 
 
     return(
@@ -425,14 +469,28 @@ const Projects = () => {
 		                <div className="filter-buttons">
 			                <div className="filter-buttons__list">
 				                <div className={filter === null ? 'filter-button is-active' : 'filter-button '} onClick={()=>setSlidesHandler(null)}>
-					              Все
+					                <div className="filter-button__text">
+						                Все
+					                </div>
+					                <div className="filter-button__amount">
+						                {
+							                projects.length
+						                }
+					                </div>
 				                </div>
 				                {
 					                filterButtons.map(btn => (
 						                <div className={filter === btn.name ? 'filter-button is-active' : 'filter-button '} key={btn.name} onClick={()=>setSlidesHandler(btn.name)}>
-							                {
-								                btn.translation
-							                }
+							                <div className="filter-button__text">
+								                {
+									                btn.translation
+								                }
+							                </div>
+							                <div className="filter-button__amount">
+								                {
+									                projects.filter(item => item.type === btn.name).length
+								                }
+							                </div>
 						                </div>
 					                ))
 				                }
@@ -449,6 +507,7 @@ const Projects = () => {
 					            modulse={[Navigation]}
 					            spaceBetween={40}
 					            slidesPerView={1}
+					            observer
 					            navigation={{
 						            prevEl: navigationPrevRef.current,
 						            nextEl: navigationNextRef.current,
@@ -468,7 +527,10 @@ const Projects = () => {
 							            slidesPerView: 4,
 						            },
 					            }}
+					            ref={swiperRef}
+					            className='slider__init'
 				            >
+					            <CSSTransition>
 					            {slides.map(slide => (
 						            <SwiperSlide key={slide.title} >
 							            <a href={slide.link} target="_blank" rel="noopener noreferrer" className="slide-item" draggable="false">
@@ -485,19 +547,21 @@ const Projects = () => {
 							            </a>
 						            </SwiperSlide>
 					            ))}
-					            <div
-						            className="slider__btn slider__btn--prev"
-						            ref={navigationPrevRef}
-					            >
-						            <img src={img} alt=""/>
-					            </div>
-					            <div
-						            className="slider__btn slider__btn--next"
-						            ref={navigationNextRef}
-					            >
-						            <img src={img} alt=""/>
-					            </div>
+					            </CSSTransition>
+
 				            </Swiper>
+							<div
+								className="slider__btn slider__btn--prev"
+								onClick={()=> swiperPrev()}
+							>
+								<img src={img} alt=""/>
+							</div>
+							<div
+								className="slider__btn slider__btn--next"
+								onClick={()=> swiperNext()}
+							>
+								<img src={img} alt=""/>
+							</div>
 						</div>
 		                <Tag tag="div" end/>
 		            </div>

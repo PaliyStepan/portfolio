@@ -1,0 +1,68 @@
+$green: #6ABEB9;
+
+
+
+.filter-buttons {
+	margin-bottom: 40px;
+
+	@media only screen and (max-width: 575px) {
+		margin-left: -30px;
+		margin-right: -30px;
+	}
+
+	&__list {
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		margin-bottom: -10px;
+
+		@media only screen and (max-width: 575px) {
+			padding-left: 30px;
+			padding-right: 30px;
+			overflow-y: auto;
+			flex-wrap: nowrap;
+		}
+
+	}
+}
+
+
+.filter-button {
+	display: inline-flex;
+	border: 1px solid #fff;
+	color: #fff;
+	cursor: pointer ;
+	height: 40px;
+	padding: 0 20px;
+	align-items: center;
+	justify-content: center;
+	margin-right: 10px;
+	transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+	margin-bottom: 10px;
+	flex-wrap: nowrap;
+
+	&.is-active {
+		background-color: $green;
+		border-color: $green;
+
+		&:hover {
+			color: #fff;
+		}
+	}
+
+	&:hover {
+		border-color: $green;
+		color: $green;
+	}
+
+	&__text {
+		white-space: nowrap;
+	}
+
+	&__amount {
+		margin-left: 6px;
+		white-space: nowrap;
+	}
+
+}
+
