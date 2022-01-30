@@ -258,13 +258,6 @@ const Projects = () => {
 		    type:'corporate'
 	    },
 	    {
-	    	title:"Lasercut", desc: "Интернет-магазин лазерных станков",
-		    ink:"https://lasercut.ru/",
-		    img:imgLaser,
-		    role: "Верстка, адаптив, jquery",
-		    type:'shop'
-	    },
-	    {
 	    	title:"Тимусол",
 		    desc: "Одноэкранник медицинского препарата",
 		    link:"https://timusol.ru/",

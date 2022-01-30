@@ -59,8 +59,6 @@ const Main = () => {
 
     return(
         <div className="inner">
-            {/*<Tag tag="html"/>
-            <Tag tag="body"/>*/}
             <div className="inner__center">
                 <div className="Main page">
                     <div className="title">
@@ -92,9 +90,6 @@ const Main = () => {
                     </div>
                 </div>
             </div>
-            {/*<Tag tag="body" end/>*/}
-            {/*<Tag tag="html" end/>*/}
-
         </div>
     )
 };
