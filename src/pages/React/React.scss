@@ -16,6 +16,12 @@
   border: 1px solid #fff;
 }
 
+.react {
+	&__desc {
+		color: var(--color-text);
+	}
+}
+
 
 .alert-enter {
   opacity: 0;

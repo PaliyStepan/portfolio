@@ -20,15 +20,19 @@
 
 
 .Games__desc {
-  font-size: 20px;
-  line-height: 22px;
-  font-weight: 300;
-  margin-bottom: 80px;
-  p {
-    margin-bottom: 10px;
-    margin-top: 0;
-    opacity: 0;
-  }
+	font-size: 20px;
+	line-height: 22px;
+	font-weight: 300;
+	margin-bottom: 80px;
+
+	p {
+		margin-bottom: 10px;
+		margin-top: 0;
+		opacity: 0;
+		&:not(.notes) {
+			color: var(--color-text);
+		}
+	}
 }
 .notes {
   color: #6ABEB9;
@@ -63,12 +67,12 @@
 }
 
 .App_mobile {
-  .slide-item__mobile {
-    display: flex;
-  }
-  .slide-item__img-inner {
-    transform: none !important;
-  }
+	.slide-item__mobile {
+		display: flex;
+	}
+	.slide-item__img-inner {
+		transform: none !important;
+	}
 }
 
 
@@ -76,17 +80,14 @@
 
 
 @media only screen and (max-width: 1360px) {
-  .games__grid {
-    padding: 0;
-    .slide-item {
-      width: 34%;
-    }
-  }
+	.games__grid {
+		padding: 0;
+		.slide-item {
+			width: 34%;
+		}
+	}
 }
 
-@media only screen and (max-width: 992px) {
-
-}
 
 @media only screen and (max-width: 767px) {
   .Games__desc {

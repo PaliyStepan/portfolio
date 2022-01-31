@@ -4,7 +4,7 @@
 	font-family: 'La Belle Aurore', cursive;
 	font-size: 20px;
 	display: block;
-	opacity: 0.5;
+	color: var(--color-tags);
 	-moz-user-select: none;
 	-khtml-user-select: none;
 	-webkit-user-select: none;
@@ -15,7 +15,7 @@
 	}
 
 
-	&__body {
+	&--body {
 		margin-left: 70px;
 
 		@media only screen and (max-width: 1199px) {
@@ -31,11 +31,11 @@
 		}
 	}
 
-	&__body_start {
+	&--body-start {
 		//margin-bottom: 60px;
 	}
 
-	&__body_end {
+	&--body-end {
 		//margin-top: 150px;
 
 
@@ -44,7 +44,19 @@
 		}
 	}
 
-	&__div_start {
+	&--div {
+		opacity: 0;
+
+		@media only screen and (max-width: 1199px) {
+			transform: translateX(0px);
+		}
+
+		@media only screen and (max-width: 575px) {
+			transform: translateX(0) ;
+		}
+	}
+
+	&--div-start {
 		margin-bottom: 30px;
 
 		@media only screen and (max-width: 991px) {
@@ -56,8 +68,8 @@
 		}
 	}
 
-	&__div_end {
-		margin-top: 40px;
+	&--div-end {
+		margin-top: 30px;
 
 		@media only screen and (max-width: 991px) {
 			//margin-top: 80px;
@@ -70,16 +82,7 @@
 
 
 
-	&__div {
 
-		@media only screen and (max-width: 1199px) {
-			transform: translateX(0px);
-		}
-
-		@media only screen and (max-width: 575px) {
-			transform: translateX(0) ;
-		}
-	}
 
 }
 

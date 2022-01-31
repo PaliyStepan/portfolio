@@ -9,7 +9,7 @@ const Main = () => {
 
     useEffect(()=>{
 
-        const h1End = document.querySelector('.Tag__h1_end');
+        const h1End = document.querySelector('.Tag--h1-end');
         const title__desc = document.querySelector('.title__desc');
         const title__markup = document.querySelector('.title__markup');
 
@@ -23,7 +23,7 @@ const Main = () => {
         const h1EndAnim = ()=> {
             TweenMax.to(h1End,
                 0.8,
-                { ease: Power2.easeInOut, opacity: 0.5},
+                { ease: Power2.easeInOut, opacity: 1},
             );
             TweenMax.to(title__desc,
                 0.7,

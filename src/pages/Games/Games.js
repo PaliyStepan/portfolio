@@ -22,28 +22,28 @@ const Games = () => {
     ];
 
     useEffect(()=>{
-        const tagStart = document.querySelector('.Tag__div_start');
-        const tagEnd = document.querySelector('.Tag__div_end');
+        const tagStart = document.querySelector('.Tag--div-start');
+        const tagEnd = document.querySelector('.Tag--div-end');
 
         const divTagsAnim = ()=> {
             TweenMax.fromTo(tagStart,
                 0.6,
                 { ease: Power2.easeInOut, opacity: 0, x: -50},
-                { ease: Power2.easeInOut, opacity: 0.5, x: 0},
+                { ease: Power2.easeInOut, opacity: 1, x: 0},
             );
             TweenMax.fromTo(tagEnd,
                 0.6,
                 { ease: Power2.easeInOut, opacity: 0, x: 50},
-                { ease: Power2.easeInOut, opacity: 0.5, x: 0},
+                { ease: Power2.easeInOut, opacity: 1, x: 0},
             );
         };
 
-        const h1End = document.querySelector('.Tag__h1_end');
+        const h1End = document.querySelector('.Tag--h1-end');
 
         const h1EndAnim = () => {
             TweenMax.to(h1End,
                 0.6,
-                {ease: Power2.easeInOut, opacity: 0.5},
+                {ease: Power2.easeInOut, opacity: 1},
             );
         };
 
@@ -113,7 +113,7 @@ const Games = () => {
                                             <div className="slide-item__img-inner" style={{background: `url("${game.img}")`}}></div>
                                         </div>
 
-                                        <h3>{game.title}</h3>
+                                        <div className="slide-item__title">{game.title}</div>
                                         <div className="modal__footer">
                                             <a href={game.link} target="_blank" rel="noopener noreferrer"> Смотреть проект {eye}</a>
                                             <a href={game.linkGit} target="_blank" rel="noopener noreferrer"> Смотреть код на GitHub {git}</a>

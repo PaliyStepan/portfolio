@@ -1,4 +1,4 @@
-import React, {useRef, useState} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import "./Menu.scss"
 import {NavLink} from "react-router-dom";
 import "../Burger/Burger.scss"
@@ -8,17 +8,25 @@ import {useHistory} from "react-router-dom";
 
 const Menu = () => {
 
-    const [burgerToggle, setBurgerToggle] = useState(false);
+	const theme = <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+		<path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22ZM12 20V4C16.4183 4 20 7.58172 20 12C20 16.4183 16.4183 20 12 20Z"/>
+	</svg>
+
+
+	const [burgerToggle, setBurgerToggle] = useState(false);
     const [menuShow, setMenuShow] = useState(false);
     const history = useHistory();
 
     const toggleMenu = () =>{
         setMenuShow(!menuShow);
+        document.querySelector('html').classList.toggle('is-fixed')
     };
 
     const toggleBurger = () => {
         setBurgerToggle(!burgerToggle);
     };
+
+
 
     const test = (e, link, id) => {
         toggleBurger();
@@ -86,11 +94,43 @@ const Menu = () => {
         {id:7, to: '/contacts', title: "Контакты", exact: false},
     ]);
 
+    const addDarkClassToggle = () => {
+        if (localStorage.getItem('theme') === 'dark') {
+        	localStorage.removeItem('theme');
+        	console.log(1)
+        } else {
+            localStorage.setItem('theme', 'dark');
+            console.log(2)
+        }
+
+	    addDarkClass();
+    };
+
+	const  addDarkClass = () => {
+		if (localStorage.getItem('theme') === 'dark') {
+			document.querySelector('body').setAttribute('data-theme','light');
+		} else {
+			document.querySelector('body').setAttribute('data-theme','dark');
+		}
+
+	};
+
+
+	useEffect(()=>{
+		addDarkClass();
+
+	},[]);
+
 
     return(
         <div className={cl.join(" ")}>
             <header className="Menu__header">
                 <div className="container Menu__header-container">
+	                <div className="theme-toggler Menu__toggler" onClick={()=>addDarkClassToggle()}>
+		                {
+			                theme
+		                }
+	                </div>
                     <div className={burger.join(" ")}  onClick={mobileMenuToggle}>
                         <div className="Burger__line Burger__line--top"></div>
                         <div className="Burger__line Burger__line--center"></div>
@@ -104,8 +144,8 @@ const Menu = () => {
                         <ul className="Menu__list" ref={el => (itemsList = el)} >
                             {
                                 links.map(link=>(
-                                    <li className="Menu__list-item"  key={link.id} id={link.id}>
-                                        <NavLink to={link.to} exact={link.exact} onClick={e=>test(e,link.to,link.id)}>{link.title}</NavLink>
+                                    <li className="Menu__item"  key={link.id} id={link.id}>
+                                        <NavLink to={link.to} className="Menu__link" exact={link.exact} onClick={e=>test(e,link.to,link.id)}>{link.title}</NavLink>
                                     </li>
                                 ))
                             }

@@ -15,6 +15,7 @@
   justify-content: center;
   position: relative;
   margin-bottom: 30px;
+	color: var(--color-text);
   &:hover {
     .skill-item__hidden {
       opacity: 1;

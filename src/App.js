@@ -14,10 +14,12 @@ import Tag from "./components/Tag/Tag";
 function App() {
 
     const [app, setApp] = useState(['App']);
+
     useEffect(()=>{
         if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
             setApp(['App', 'App_mobile']);
         }
+
     },[]);
 
     return (
@@ -25,9 +27,10 @@ function App() {
 			<Menu/>
 			<div className="App__wrap">
 				<div className="container App__container">
-					<Tag tag="html"/>
-					<Tag tag="body"/>
-
+					<div className="App__header">
+						<Tag tag="html"/>
+						<Tag tag="body"/>
+					</div>
 					<div className="App__content">
 						<Switch >
 							<Route path="/about" component={About}></Route>
@@ -41,8 +44,10 @@ function App() {
 							<Redirect to="/"/>
 						</Switch>
 					</div>
-					<Tag tag="body" end/>
-					<Tag tag="html" end/>
+					<div className="App__footer">
+						<Tag tag="body" end/>
+						<Tag tag="html" end/>
+					</div>
 				</div>
 			</div>
 		</div>

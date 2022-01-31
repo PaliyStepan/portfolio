@@ -3,9 +3,9 @@ import "./Tag.scss"
 
 const Tag = (props) => {
     const {tag, end} = props;
-    const cl = ['Tag', `Tag__${tag}`];
+    const cl = ['Tag', `Tag--${tag}`];
 
-    end ? cl.push(`Tag__${tag}_end`) : cl.push(`Tag__${tag}_start`);
+    end ? cl.push(`Tag--${tag}-end`) : cl.push(`Tag--${tag}-start`);
 
     return(
         <div className={cl.join(" ")}>

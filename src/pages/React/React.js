@@ -7,11 +7,10 @@ import img from "../../assets/img/svg/arrow__green.svg";
 import imgArrow from "../../assets/img/svg/arrow.svg";
 import { Power2, TweenMax} from "gsap";
 
-//import raectProjImg1 from "../../assets/img/react/react_1.png";
 import raectProjImg2 from "../../assets/img/react/react_2.png";
 import raectProjImg3 from "../../assets/img/react/react_3.png";
-import raectProjImg4 from "../../assets/img/react/react_4.png";
-import raectProjImg5 from "../../assets/img/react/react_5.png";
+// import raectProjImg4 from "../../assets/img/react/react_4.png";
+// import raectProjImg5 from "../../assets/img/react/react_5.png";
 import raectProjImg6 from "../../assets/img/react/react_6.png";
 
 
@@ -38,6 +37,10 @@ const ReactBlock = () => {
         // {id:4, img: raectProjImg5, linkGit: "https://github.com/PaliyStepan/ReactToDoList" ,link: "https://todolistreact-4bfd7.firebaseapp.com/" ,title: "To Do List", desc: "To Do List", more: "To do list с ипользованием  React Hooks, БД firebase , axios и анимацией."},
         {id:4, img: raectProjImg6, linkGit: "https://github.com/PaliyStepan/resortReact" ,link: "https://reactresort.firebaseapp.com/" ,title: "Resort", desc: "Приложение с комнатами гостинцы", more: "Небольшой проект с использованием React Context Api, фильтрацией элементов и т.д."}
     ]);
+
+	const arrow = <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+		<path d="M5.42294 10.7171L8.64088 7.5L5.42382 4.28294L6.04765 3.65912L9.88853 7.5L6.04676 11.3418L5.42294 10.7171ZM-2.98004e-07 7.5C6.35411e-08 3.36441 3.36441 -6.35411e-08 7.5 2.98003e-07C11.6356 6.59548e-07 15 3.36441 15 7.5C15 11.6356 11.6356 15 7.5 15C3.36441 15 -6.59548e-07 11.6356 -2.98004e-07 7.5ZM0.882353 7.5C0.882352 11.1494 3.85059 14.1176 7.5 14.1176C11.1494 14.1176 14.1176 11.1494 14.1176 7.5C14.1176 3.85059 11.1494 0.882353 7.5 0.882353C3.85059 0.882353 0.882353 3.85059 0.882353 7.5Z" fill="white"/>
+	</svg>
 
     let sliderSettings = {
         infinite: false,
@@ -69,20 +72,20 @@ const ReactBlock = () => {
 
     useEffect(()=>{
         const activeSlides = document.querySelectorAll('.slick-active');
-        const tagStart = document.querySelector('.Tag__div_start');
-        const tagEnd = document.querySelector('.Tag__div_end');
+        const tagStart = document.querySelector('.Tag--div-start');
+        const tagEnd = document.querySelector('.Tag--div-end');
         const arr = [...activeSlides];
 
         const divTagsAnim = ()=> {
             TweenMax.fromTo(tagStart,
                 0.6,
                 { ease: Power2.easeInOut, opacity: 0, x: -50},
-                { ease: Power2.easeInOut, opacity: 0.5, x: 0},
+                { ease: Power2.easeInOut, opacity: 1, x: 0},
             );
             TweenMax.fromTo(tagEnd,
                 0.6,
                 { ease: Power2.easeInOut, opacity: 0, x: 50},
-                { ease: Power2.easeInOut, opacity: 0.5, x: 0},
+                { ease: Power2.easeInOut, opacity: 1, x: 0},
             );
         };
 
@@ -98,11 +101,11 @@ const ReactBlock = () => {
         );
 
 
-        const h1End = document.querySelector('.Tag__h1_end');
+        const h1End = document.querySelector('.Tag--h1-end');
         const h1EndAnim = () => {
             TweenMax.to(h1End,
                 0.6,
-                {ease: Power2.easeInOut, opacity: 0.5},
+                {ease: Power2.easeInOut, opacity: 1},
             );
 
         };
@@ -145,9 +148,9 @@ const ReactBlock = () => {
             <span className="slide-item__img">
                 <span className="slide-item__img-inner" style={{background: `url("${slide.img}")`}}></span>
             </span>
-            <h3>"{slide.title}"</h3>
-            <p>{slide.desc}</p>
-            <span className="slide-item__link">Смотреть <img src={imgArrow} alt="arrow"/></span>
+	        <div className="slide-item__title">{slide.title}</div>
+            <div className="slide-item__desc">{slide.desc}</div>
+            <span className="slide-item__link">Смотреть {arrow}</span>
         </div>
     ));
 
@@ -170,7 +173,7 @@ const ReactBlock = () => {
 	            </div>
 	            <div className="inner__content">
 	                <Tag tag="div"/>
-	                <p className="react__des">Проекты, которые я создал в процессе обучения React </p>
+	                <p className="react__desc">Проекты, которые я создал в процессе обучения React </p>
 	                <Slider {...sliderSettings}>
 	                    {sliderSlides}
 	                </Slider>
