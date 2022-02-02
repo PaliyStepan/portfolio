@@ -8,8 +8,10 @@ import {useHistory} from "react-router-dom";
 
 const Menu = () => {
 
-	const theme = <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-		<path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22ZM12 20V4C16.4183 4 20 7.58172 20 12C20 16.4183 16.4183 20 12 20Z"/>
+	const theme = <svg className="svg" width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
+		<path
+			d="M5.5 16.196C6.557 16.71 7.745 17 9 17c4.418 0 8-3.582 8-8 0-4.418-3.582-8-8-8-1.255 0-2.443.29-3.5.804C2.836 3.103 1 5.837 1 9c0 3.163 1.836 5.898 4.5 7.196zM16 9c0 3.866-3.134 7-7 7-.854 0-1.673-.153-2.43-.433C8.643 14.12 10 11.719 10 9c0-2.719-1.357-5.121-3.43-6.567C7.327 2.153 8.146 2 9 2c3.866 0 7 3.134 7 7z"
+			fill-rule="nonzero" fill-opacity="1" ></path>
 	</svg>
 
 
@@ -126,7 +128,7 @@ const Menu = () => {
         <div className={cl.join(" ")}>
             <header className="Menu__header">
                 <div className="container Menu__header-container">
-	                <div className="theme-toggler Menu__toggler" onClick={()=>addDarkClassToggle()}>
+	                <div className="Menu__toggler" onClick={()=>addDarkClassToggle()}>
 		                {
 			                theme
 		                }

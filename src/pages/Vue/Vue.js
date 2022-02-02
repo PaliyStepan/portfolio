@@ -4,7 +4,7 @@ import Tag from "../../components/Tag/Tag";
 import {CSSTransition} from "react-transition-group";
 import Slider from "react-slick";
 import img from "../../assets/img/svg/arrow__green.svg";
-import imgArrow from "../../assets/img/svg/arrow.svg";
+// import imgArrow from "../../assets/img/svg/arrow.svg";
 import { Power2, TweenMax} from "gsap";
 
 import raectProjImg1 from "../../assets/img/vue/vue_1.png";

@@ -87,7 +87,7 @@ const Skills = () => {
                             </div>
                             <div className="skill-item">
                                 <div className="skill-item__visible">
-                                    JavaScript <br/> jQuery <br/> ES6
+                                    JavaScript <br/> ES6 <br/>jQuery
                                 </div>
                                 <div className="skill-item__hidden">
                                     Уверенные знания JavaScript и jQuery. (Работа с DOM-элементами, подключение и
@@ -112,7 +112,7 @@ const Skills = () => {
                             </div>
                             <div className="skill-item">
                                 <div className="skill-item__visible">
-                                    Photoshop <br/> Figma <br/> Adobe XD
+	                                Figma <br/> Photoshop <br/> Adobe XD
                                 </div>
                                 <div className="skill-item__hidden">
                                     Владение Photoshop,Figma, Avocode, Adobe XD на уровне нарезки макетов
@@ -168,10 +168,10 @@ const Skills = () => {
                             </div>
                             <div className="skill-item">
                                 <div className="skill-item__visible">
-                                    SVG
+                                    PUG
                                 </div>
                                 <div className="skill-item__hidden">
-                                    Работа с SVG-графикой
+	                                Использование шаблонизатора PUG  (mixins, extends, include)
                                 </div>
                             </div>
                         </div>

@@ -124,16 +124,22 @@
 
 
 	&__toggler {
-		width: 20px;
-		height: 20px;
+		width: 18px;
+		height: 18px;
 		cursor: pointer;
 		position: absolute;
 		top: 30px;
 		left: -40px;
 		transform: rotate(45deg);
+		opacity: 0.8;
+		transition: opacity 0.2s ease;
 
 		svg {
 			fill: var(--color-text);
+		}
+
+		&:hover {
+			opacity: 1;
 		}
 
 
